@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.secrets)
 }
 
@@ -66,6 +67,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
     implementation(libs.kotlinx.coroutines.android)
@@ -73,6 +76,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlin.serialization)
     kapt(libs.hilt.compiler)
+    ksp(libs.androidx.room.compiler)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.junit)
     testImplementation(libs.turbine)
