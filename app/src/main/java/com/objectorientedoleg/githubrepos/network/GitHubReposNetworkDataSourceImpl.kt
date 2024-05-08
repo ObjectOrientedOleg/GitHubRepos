@@ -22,19 +22,20 @@ class GitHubReposNetworkDataSourceImpl @Inject constructor(
 ) : GitHubReposNetworkDataSource {
 
     private val service by lazy<GitHubService> {
-        val oAuthClient = okHttpClient
+        val gitHubClient = okHttpClient
             .newBuilder()
             .addInterceptor { chain ->
                 val request = chain
                     .request()
                     .newBuilder()
                     .addHeader("Authorization", "Bearer ${BuildConfig.GITHUB_ACCESS_TOKEN}")
+                    .addHeader("X-GitHub-Api-Version", "2022-11-28")
                     .build()
                 chain.proceed(request)
             }
             .build()
         Retrofit.Builder()
-            .client(oAuthClient)
+            .client(gitHubClient)
             .baseUrl("https://api.github.com/")
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
@@ -45,6 +46,7 @@ class GitHubReposNetworkDataSourceImpl @Inject constructor(
         query: String,
         count: Int
     ): Result<List<NetworkGitHubRepository>> = suspendRunCatching {
+        require(count in 1..100)
         service.searchRepositories(query, count).repositories
     }
 
