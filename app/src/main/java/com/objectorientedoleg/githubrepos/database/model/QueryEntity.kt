@@ -14,7 +14,7 @@ data class QueryEntity(
 @Entity(primaryKeys = ["query", "repositoryId"])
 data class QueryAndRepositoryEntity(
     val query: String,
-    val repositoryId: Int,
+    @ColumnInfo(index = true) val repositoryId: Int,
 )
 
 data class QueryWithRepositories(
@@ -30,7 +30,7 @@ data class QueryWithRepositories(
 @Entity(primaryKeys = ["query", "contributorId"])
 data class QueryAndContributorEntity(
     val query: String,
-    val contributorId: Int,
+    @ColumnInfo(index = true) val contributorId: Int,
 )
 
 data class QueryWithContributors(
