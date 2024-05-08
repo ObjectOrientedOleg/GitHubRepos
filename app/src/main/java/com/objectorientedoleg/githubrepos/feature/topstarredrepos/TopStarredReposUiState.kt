@@ -12,6 +12,9 @@ sealed interface TopStarredReposUiState {
 @Immutable
 class RepositoryItems(items: List<RepositoryItem>) : List<RepositoryItem> by items
 
+/**
+ * UI layer representation of a GitHub repository, with a [TopContributor].
+ */
 data class RepositoryItem(
     val id: Int,
     val name: String,

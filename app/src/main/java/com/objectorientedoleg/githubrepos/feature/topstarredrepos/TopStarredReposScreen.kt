@@ -80,7 +80,7 @@ private fun TopStarredReposTopBar(modifier: Modifier = Modifier) {
     TopAppBar(
         modifier = modifier,
         title = {
-            Text(text = stringResource(R.string.app_name))
+            Text(text = stringResource(R.string.top_starred_repos_title))
         }
     )
 }

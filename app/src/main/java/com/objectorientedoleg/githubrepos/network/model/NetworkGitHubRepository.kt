@@ -3,6 +3,9 @@ package com.objectorientedoleg.githubrepos.network.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Represents a GitHub repository retrieved from the network.
+ */
 @Serializable
 data class NetworkGitHubRepository(
     @SerialName("id") val id: Int,
@@ -13,6 +16,9 @@ data class NetworkGitHubRepository(
     @SerialName("language") val language: String?,
     @SerialName("stargazers_count") val starCount: Int,
 ) {
+    /**
+     * Represents the owner of a GitHub repository.
+     */
     @Serializable
     data class Owner(
         @SerialName("id") val id: Int,

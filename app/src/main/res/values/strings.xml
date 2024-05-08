@@ -2,4 +2,5 @@
     <string name="app_name">GitHub Repos</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="top_contributor">Top Contributor:</string>
+    <string name="top_starred_repos_title">Top 100 Starred GitHub Repos</string>
 </resources>

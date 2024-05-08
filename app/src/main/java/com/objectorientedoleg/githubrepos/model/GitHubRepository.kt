@@ -1,5 +1,8 @@
 package com.objectorientedoleg.githubrepos.model
 
+/**
+ * Domain layer representation of a GitHub repository.
+ */
 data class GitHubRepository(
     val id: Int,
     val name: String,
@@ -9,6 +12,9 @@ data class GitHubRepository(
     val language: String?,
     val starCount: Int,
 ) {
+    /**
+     * Represents the owner of a GitHub repository.
+     */
     data class Owner(
         val id: Int,
         val name: String,
