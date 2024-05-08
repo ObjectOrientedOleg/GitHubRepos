@@ -7,6 +7,7 @@ import kotlinx.serialization.Serializable
 data class NetworkGitHubRepository(
     @SerialName("id") val id: Int,
     @SerialName("name") val name: String,
+    @SerialName("full_name") val fullName: String,
     @SerialName("owner") val owner: Owner,
     @SerialName("description") val description: String?,
     @SerialName("language") val language: String?,

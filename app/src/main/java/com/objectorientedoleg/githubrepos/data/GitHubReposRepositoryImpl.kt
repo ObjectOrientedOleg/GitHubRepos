@@ -35,6 +35,7 @@ class GitHubReposRepositoryImpl @Inject constructor(
 private fun NetworkGitHubRepository.toGitHubRepository() = GitHubRepository(
     id = id,
     name = name,
+    fullName = fullName,
     owner = GitHubRepository.Owner(
         id = owner.id,
         name = owner.login,

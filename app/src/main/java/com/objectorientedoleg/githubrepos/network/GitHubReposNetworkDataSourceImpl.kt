@@ -6,7 +6,7 @@ import com.objectorientedoleg.githubrepos.network.model.NetworkGitHubContributor
 import com.objectorientedoleg.githubrepos.network.model.NetworkGitHubRepositoriesSearch
 import com.objectorientedoleg.githubrepos.network.model.NetworkGitHubRepository
 import kotlinx.serialization.json.Json
-import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.create
@@ -36,7 +36,7 @@ class GitHubReposNetworkDataSourceImpl @Inject constructor(
         Retrofit.Builder()
             .client(oAuthClient)
             .baseUrl("https://api.github.com/")
-            .addConverterFactory(json.asConverterFactory(MediaType.get("application/json")))
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
             .create()
     }
